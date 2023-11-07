@@ -1,14 +1,14 @@
 import {Composition} from 'remotion';
-import {NewsUpdate, myCompSchema} from './NewsUpdate';
+import {NewsUpdateDisplay, myCompSchema} from './NewsUpdateDisplay'
 
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="NewsUpdate"
-				component={NewsUpdate}
-				durationInFrames={150}
+				id="NewsUpdateDisplay"
+				component={NewsUpdateDisplay}
+				durationInFrames={810}
 				fps={30}
 				width={1080}
 				height={1920}
