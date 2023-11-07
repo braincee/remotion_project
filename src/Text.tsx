@@ -17,7 +17,6 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 
 	const textInterval = videoConfig.durationInFrames / titleTexts.length;
 
-	// Determine the current text index based on the current frame
 	const currentTextIndex = Math.floor(frame / textInterval);
 
 	const opacity = interpolate(
@@ -27,14 +26,14 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 	);
 
 	return (
-		<div style={{position: 'absolute', bottom: '40%'}}>
+		<div style={{position: 'absolute', bottom: '25%', display: 'flex', justifyContent: 'center'}}>
 			<p
 				style={{
 					color: titleColor,
 					opacity,
-					fontSize: '40px',
+					fontSize: '70px',
 					textAlign: 'center',
-					width,
+					width: '70%',
 				}}
 			>
 				{titleTexts[currentTextIndex].toUpperCase()}

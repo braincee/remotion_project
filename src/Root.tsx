@@ -13,9 +13,15 @@ export const RemotionRoot: React.FC = () => {
 				height={1920}
 				schema={myCompositionSchema}
 				defaultProps={{
-					titleTexts: ['Welcome to Remotion', 'This is a new Text'],
-					titleColor: '#000000',
-					scrollingTexts: ['Remotion', 'Remotion'],
+					titleTexts: [
+						'Balancer Exploit Results in $900K stolen from LPs',
+						'The Team warned about the bug 5 days prior',
+						'Record 1 million ETH burned since the start of this year',
+						'Uniswap fees alone made for 50% of the burn',
+						'Grayscale wins against the sec in court',
+					],
+					titleColor: '#ffff',
+					scrollingTexts: ['Blocktalk', 'BlockTalk'],
 					scrollingColors: ['#fff', '#f888'],
 				}}
 			/>

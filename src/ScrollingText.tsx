@@ -13,11 +13,7 @@ export const ScrollingText: React.FC<z.infer<typeof myScrollingTextSchema>> = ({
 }) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
-
-	// Adjust the duration (in frames) for the text to scroll across the screen
 	const duration = videoConfig.durationInFrames;
-
-	// Calculate the position of the text based on the current frame
 	const xPos = (frame / duration) * videoConfig.width;
 
 	const numDuplicates = Math.floor(videoConfig.width / 100);
@@ -28,7 +24,7 @@ export const ScrollingText: React.FC<z.infer<typeof myScrollingTextSchema>> = ({
 				display: 'flex',
 				gap: '20px',
 				position: 'absolute',
-				bottom: '8%', // Center vertically
+				bottom: '8%',
 				left: xPos,
 				transform: 'translateX(-50%)',
 			}}
