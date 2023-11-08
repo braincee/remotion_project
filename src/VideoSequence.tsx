@@ -1,10 +1,13 @@
 import {linearTiming, TransitionSeries} from '@remotion/transitions';
 import {slide} from '@remotion/transitions/slide';
 import {Video, useVideoConfig, staticFile} from 'remotion';
+
+
 export const VideoSequence = () => {
 	const {width, height} = useVideoConfig();
 	return (
-		<TransitionSeries>
+		<div style={{ position: 'relative', bottom: '10%' }}>
+           <TransitionSeries>
 			<TransitionSeries.Sequence durationInFrames={270}>
 				<Video
 					src={staticFile('stock_market_1.mp4')}
@@ -31,5 +34,7 @@ export const VideoSequence = () => {
 				/>
 			</TransitionSeries.Sequence>
 		</TransitionSeries>
+		</div>
+		
 	);
 };
