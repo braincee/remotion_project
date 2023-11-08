@@ -7,7 +7,7 @@ export const VideoSequence = () => {
 		<TransitionSeries>
 			<TransitionSeries.Sequence durationInFrames={270}>
 				<Video
-					src={staticFile('binary.mp4')}
+					src={staticFile('stock_market_1.mp4')}
 					height={height / 2}
 					width={width}
 				/>
@@ -17,7 +17,7 @@ export const VideoSequence = () => {
 				timing={linearTiming({durationInFrames: 10})}
 			/>
 			<TransitionSeries.Sequence durationInFrames={270}>
-				<Video src={staticFile('fire.mp4')} height={height / 2} width={width} />
+				<Video src={staticFile('stock_market_2.mp4')} height={height / 2} width={width} />
 			</TransitionSeries.Sequence>
 			<TransitionSeries.Transition
 				presentation={slide()}
@@ -25,7 +25,7 @@ export const VideoSequence = () => {
 			/>
 			<TransitionSeries.Sequence durationInFrames={270}>
 				<Video
-					src={staticFile('court.mp4')}
+					src={staticFile('stock_market_3.mp4')}
 					height={height / 2}
 					width={width}
 				/>
