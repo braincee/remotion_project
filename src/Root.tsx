@@ -1,6 +1,7 @@
 import {Composition} from 'remotion';
 import {MyComposition, myCompositionSchema} from './MyComposition';
 
+
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
@@ -21,8 +22,7 @@ export const RemotionRoot: React.FC = () => {
 						'Grayscale wins against the sec in court',
 					],
 					titleColor: '#ffff',
-					scrollingTexts: ['Blocktalk', 'BlockTalk'],
-					scrollingColors: ['#fff', '#f888'],
+				    logoPaths: ['google_1.png', 'grayscale_1.png'],
 				}}
 			/>
 		</>

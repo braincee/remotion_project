@@ -1,22 +1,20 @@
 import {useVideoConfig} from 'remotion';
 import {z} from 'zod';
 import {Text} from './Text';
-import {ScrollingText} from './ScrollingText';
 import {NewsUpdateDisplay} from './NewsUpdateDisplay';
 import {zColor} from '@remotion/zod-types';
+import { LogoSequence } from './LogoSequence';
 
 export const myCompositionSchema = z.object({
 	titleTexts: z.array(z.string()),
 	titleColor: zColor(),
-	scrollingTexts: z.array(z.string()),
-	scrollingColors: z.array(zColor()),
+	logoPaths: z.tuple([z.string(), z.string()]), 
 });
 
 export const MyComposition: React.FC<z.infer<typeof myCompositionSchema>> = ({
 	titleTexts,
 	titleColor,
-	scrollingTexts,
-	scrollingColors,
+	logoPaths,
 }) => {
 	const {width, height} = useVideoConfig();
 
@@ -33,9 +31,8 @@ export const MyComposition: React.FC<z.infer<typeof myCompositionSchema>> = ({
 		>
 			<NewsUpdateDisplay />
 			<Text titleTexts={titleTexts} titleColor={titleColor} />
-			<ScrollingText
-				titleTexts={scrollingTexts}
-				titleColors={scrollingColors}
+			<LogoSequence 
+			 logoPaths={logoPaths}
 			/>
 		</div>
 	);
