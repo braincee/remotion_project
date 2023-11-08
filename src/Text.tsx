@@ -1,6 +1,7 @@
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {z} from 'zod';
 import {zColor} from '@remotion/zod-types';
+import './font.css';
 
 export const myTextSchema = z.object({
 	titleTexts: z.array(z.string()),
@@ -34,6 +35,7 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 					fontSize: '70px',
 					textAlign: 'center',
 					width: '70%',
+					fontFamily: 'Agbalumo',
 				}}
 			>
 				{titleTexts[currentTextIndex].toUpperCase()}
