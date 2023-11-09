@@ -41,7 +41,7 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 		frame,
 		[
 			(currentTextIndex + 1) * textInterval - 15,
-			(currentTextIndex + 1) * textInterval,
+			(currentTextIndex + 1) * textInterval + 15,
 		],
 		[0, 1080],
 		{
@@ -75,17 +75,15 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 		to: 1,
 	});
 
-	useEffect(() => {
-		const myText = document.getElementById('#myText');
+	const transform =
+		frame <= currentTextIndex * textInterval + 30
+			? `translateY(${translateYX}px)`
+			: `translateX(${translateXY}px)`;
 
-		if (frame === (currentTextIndex + 1) * textInterval - 30) {
-			myText?.setAttribute('style', 'transform: ""');
-			myText?.setAttribute('style', `transform: translateX(${translateXY}px)`);
-		}
-	}, [frame]);
-
+	console.log(transform);
 	return (
 		<div
+			id="myText"
 			style={{
 				position: 'absolute',
 				bottom: '30%',
@@ -95,14 +93,13 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 		>
 			{currentTextIndex % 2 === 0 ? (
 				<p
-					id="myText"
 					style={{
 						color: titleColor,
 						fontSize: '70px',
 						textAlign: 'center',
 						width: '70%',
 						fontFamily: 'Agbalumo',
-						transform: `translateY(${translateYX}px)`,
+						transform: transform,
 					}}
 				>
 					{titleTexts[currentTextIndex].toUpperCase()}
