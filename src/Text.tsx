@@ -1,14 +1,7 @@
-import {
-	Easing,
-	interpolate,
-	spring,
-	useCurrentFrame,
-	useVideoConfig,
-} from 'remotion';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {z} from 'zod';
 import {zColor} from '@remotion/zod-types';
 import './font.css';
-import {useEffect} from 'react';
 
 export const myTextSchema = z.object({
 	titleTexts: z.array(z.string()),
@@ -21,7 +14,6 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 }) => {
 	const videoConfig = useVideoConfig();
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
 
 	const textInterval = videoConfig.durationInFrames / titleTexts.length;
 
@@ -29,8 +21,24 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 
 	const translateYX = interpolate(
 		frame,
-		[currentTextIndex * textInterval, currentTextIndex * textInterval + 30],
-		[1080, 0],
+		[
+			currentTextIndex * textInterval + 10,
+			currentTextIndex * textInterval + 20,
+		],
+		[400, 0],
+		{
+			extrapolateLeft: 'clamp',
+			extrapolateRight: 'clamp',
+		}
+	);
+
+	const opacity = interpolate(
+		frame,
+		[
+			currentTextIndex * textInterval + 10,
+			currentTextIndex * textInterval + 20,
+		],
+		[0, 1],
 		{
 			extrapolateLeft: 'clamp',
 			extrapolateRight: 'clamp',
@@ -40,8 +48,8 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 	const translateXY = interpolate(
 		frame,
 		[
-			(currentTextIndex + 1) * textInterval - 15,
-			(currentTextIndex + 1) * textInterval + 15,
+			(currentTextIndex + 1) * textInterval - 30,
+			(currentTextIndex + 1) * textInterval,
 		],
 		[0, 1080],
 		{
@@ -53,9 +61,9 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 	const translateX = interpolate(
 		frame,
 		[
-			currentTextIndex * textInterval,
-			currentTextIndex * textInterval + 30,
-			(currentTextIndex + 1) * textInterval - 15,
+			currentTextIndex * textInterval - 10,
+			currentTextIndex * textInterval + 20,
+			(currentTextIndex + 1) * textInterval - 30,
 			(currentTextIndex + 1) * textInterval,
 		],
 		[-1080, 0, 0, 1080],
@@ -65,22 +73,11 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 		}
 	);
 
-	const opacity = spring({
-		frame,
-		fps,
-		config: {
-			stiffness: 100,
-		},
-		from: 0,
-		to: 1,
-	});
-
 	const transform =
 		frame <= currentTextIndex * textInterval + 30
 			? `translateY(${translateYX}px)`
 			: `translateX(${translateXY}px)`;
 
-	console.log(transform);
 	return (
 		<div
 			id="myText"
@@ -100,6 +97,7 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 						width: '70%',
 						fontFamily: 'Agbalumo',
 						transform: transform,
+						opacity,
 					}}
 				>
 					{titleTexts[currentTextIndex].toUpperCase()}
@@ -113,7 +111,6 @@ export const Text: React.FC<z.infer<typeof myTextSchema>> = ({
 						width: '70%',
 						fontFamily: 'Agbalumo',
 						transform: `translate(${translateX}px)`,
-						opacity,
 					}}
 				>
 					{titleTexts[currentTextIndex].toUpperCase()}
