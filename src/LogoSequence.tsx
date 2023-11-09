@@ -2,11 +2,11 @@ import { useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
 import { z } from 'zod';
 import { Img } from 'remotion';
 
-export const myScrollingTextSchema = z.object({
+export const myScrollingLogoSchema = z.object({
   logoPaths: z.tuple([z.string(), z.string()]),
 });
 
-export const LogoSequence: React.FC<z.infer<typeof myScrollingTextSchema>> = ({
+export const LogoSequence: React.FC<z.infer<typeof myScrollingLogoSchema>> = ({
   logoPaths,
 }) => {
   const videoConfig = useVideoConfig();

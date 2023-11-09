@@ -1,5 +1,7 @@
 import {Composition} from 'remotion';
 import {MyComposition, myCompositionSchema} from './MyComposition';
+import { myCompositionSchema2 } from './image_update/ImageComposition';
+import {ImageComposition} from './image_update/ImageComposition'
 
 
 export const RemotionRoot: React.FC = () => {
@@ -23,6 +25,20 @@ export const RemotionRoot: React.FC = () => {
 					],
 					titleColor: '#ffff',
 				    logoPaths: ['google_1.png', 'grayscale_1.png'],
+				}}
+			/>
+			{/**/}
+			<Composition
+				id="OnlyImage"
+				component={ImageComposition}
+				durationInFrames={150}
+				fps={30}
+				width={1080}
+				height={1920}
+				schema={myCompositionSchema2}
+				defaultProps={{
+					titleTexts: 'Ethereum price shakeup predicted amid Merge confusion Cryptocurrency has doubled in value since mid June ahead of momentous event',
+					titleColor: 'black',
 				}}
 			/>
 		</>
