@@ -11,7 +11,7 @@
 	"repository": {},
 	"license": "UNLICENSED",
 	"dependencies": {
-		"@remotion/cli": "^4.0.0",
+		"@remotion/cli": "^4.0.74",
 		"@remotion/lambda": "^4.0.66",
 		"@remotion/transitions": "^4.0.63",
 		"@remotion/zod-types": "^4.0.0",
