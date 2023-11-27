@@ -1,37 +1,43 @@
 import {Composition} from 'remotion';
-import {HelloWorld, myCompSchema} from './HelloWorld';
-import {Logo, myCompSchema2} from './HelloWorld/Logo';
-
+import {MyComposition, myCompositionSchema} from './MyComposition';
+import {myCompositionSchema2} from './image_update/ImageComposition';
+import {ImageComposition} from './image_update/ImageComposition';
 
 export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="HelloWorld"
-				component={HelloWorld}
-				durationInFrames={150}
+				id="MyComponent"
+				component={MyComposition}
+				durationInFrames={810}
 				fps={30}
-				width={1920}
-				height={1080}
-				schema={myCompSchema}
+				width={1080}
+				height={1920}
+				schema={myCompositionSchema}
 				defaultProps={{
-					titleText: 'Welcome to Remotion',
-					titleColor: '#000000',
-					logoColor1: '#91EAE4',
-					logoColor2: '#86A8E7',
+					titleTexts: [
+						'Balancer Exploit Results in $900K stolen from LPs',
+						'The Team warned about the bug 5 days prior',
+						'Record 1 million ETH burned since the start of this year',
+						'Uniswap fees alone made for 50% of the burn',
+						'Grayscale wins against the sec in court',
+					],
+					titleColor: '#ffff',
+					logoPaths: ['google_1.png', 'grayscale_1.png'],
 				}}
 			/>
 			<Composition
-				id="OnlyLogo"
-				component={Logo}
+				id="OnlyImage"
+				component={ImageComposition}
 				durationInFrames={150}
 				fps={30}
-				width={1920}
-				height={1080}
-				schema={myCompSchema2}
+				width={1080}
+				height={1920}
+				schema={myCompositionSchema2}
 				defaultProps={{
-					logoColor1: '#91dAE2' as const,
-					logoColor2: '#86A8E7' as const,
+					titleTexts:
+						'Ethereum price shakeup predicted amid Merge confusion Cryptocurrency has doubled in value since mid June ahead of momentous event',
+					titleColor: '#0000',
 				}}
 			/>
 		</>
