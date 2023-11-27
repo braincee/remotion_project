@@ -1,8 +1,7 @@
 import {Composition} from 'remotion';
 import {MyComposition, myCompositionSchema} from './MyComposition';
-import { myCompositionSchema2 } from './image_update/ImageComposition';
-import {ImageComposition} from './image_update/ImageComposition'
-
+import {myCompositionSchema2} from './image_update/ImageComposition';
+import {ImageComposition} from './image_update/ImageComposition';
 
 export const RemotionRoot: React.FC = () => {
 	return (
@@ -24,10 +23,9 @@ export const RemotionRoot: React.FC = () => {
 						'Grayscale wins against the sec in court',
 					],
 					titleColor: '#ffff',
-				    logoPaths: ['google_1.png', 'grayscale_1.png'],
+					logoPaths: ['google_1.png', 'grayscale_1.png'],
 				}}
 			/>
-			{/**/}
 			<Composition
 				id="OnlyImage"
 				component={ImageComposition}
@@ -37,8 +35,9 @@ export const RemotionRoot: React.FC = () => {
 				height={1920}
 				schema={myCompositionSchema2}
 				defaultProps={{
-					titleTexts: 'Ethereum price shakeup predicted amid Merge confusion Cryptocurrency has doubled in value since mid June ahead of momentous event',
-					titleColor: 'black',
+					titleTexts:
+						'Ethereum price shakeup predicted amid Merge confusion Cryptocurrency has doubled in value since mid June ahead of momentous event',
+					titleColor: '#0000',
 				}}
 			/>
 		</>
